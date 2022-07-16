@@ -1,0 +1,92 @@
+# system
+# alias t="tail -f"
+
+# folder
+alias c="cd ~/Code/"
+alias blog="cd ~/blog/append"
+
+# laravel
+alias addlaravel="cd ~/Code/ && composer create-project --prefer-dist laravel/laravel"
+alias art='php artisan'
+alias serve='php artisan serve'
+alias tinker='php artisan tinker'
+alias migrate="php artisan migrate"
+alias sail='bash vendor/bin/sail'
+
+# composer
+alias co="composer"
+alias cr="composer require"
+alias ci="composer install"
+
+# Misc PHP
+
+t() {
+  if [ -f vendor/bin/phpunit ]; then
+    vendor/bin/phpunit "$@"
+  else
+    phpunit "$@"
+  fi
+}
+
+# git
+alias gst='git status -s'
+alias gcm='git commit -m'
+alias gcl='git clone'
+alias nah="git reset --hard && git clean -df"
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias grbdel="git push origin --delete "
+alias gba="git branch -a"
+alias gt="git tag"
+alias gpo="git push origin"
+alias gspu="git stash push"
+alias gspo="git stash pop"
+alias gsli="git stash list"
+alias gcom="git checkout master"
+
+# tmux
+alias td="tmux detach"
+#ta  tmux attach -t  Attach new tmux session to already running named session
+#tad tmux attach -d -t   Detach named tmux session
+#ts  tmux new-session -s Create a new named tmux session
+#tl  tmux list-sessions  Displays a list of running tmux sessions
+#tksv    tmux kill-server    Terminate all running tmux sessions
+#tkss    tmux kill-session -t    Terminate named running tmux session
+#tmux    _zsh_tmux_plugin_run    Start a new tmux session
+
+# hexo
+alias hexos="cd ~/blog/append && hexo s"
+
+
+bindkey -s '\e\e' '\C-asudo \C-e'
+
+# zsh auto suggestion
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6666ff,bg=#ccff33,bold,underline"
+# 避免触发过长的自动填充字符串
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+bindkey -M emacs '^O' autosuggest-toggle
+bindkey -M emacs '^I' expand-or-complete
+bindkey '^J' autosuggest-execute
+#bindkey -M emacs '^K' autosuggest-fetch
+#bindkey -M emacs '^J' autosuggest-accept
+bindkey -M emacs "^P" history-beginning-search-backward
+bindkey -M emacs "^N" history-beginning-search-forward
+
+# history-substring
+#bindkey -M emacs "^P" history-substring-search-up 
+#bindkey -M emacs "^N" history-substring-search-down 
+
+# alias-finder
+alias af="alias-finder -l"
+
+
+# other
+alias lg="lazygit"
+alias n="neofetch"
+alias ra="ranger"
+alias v="nvim"
+alias vim="vim"
+alias python="python3"
+alias pip="pip3"
+
+#composer
+alias crm="composer remove"
