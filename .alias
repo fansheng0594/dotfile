@@ -1,17 +1,31 @@
 # system
 # alias t="tail -f"
 
+# operate
+mc () {mkdir -p -- "$1" && cd -P -- "$1"}
+
 # folder
 alias c="cd ~/Code/"
 alias blog="cd ~/blog/append"
+alias lara="cd ~/Code/laradock"
 
 # laravel
 alias addlaravel="cd ~/Code/ && composer create-project --prefer-dist laravel/laravel"
 alias art='php artisan'
+alias amc='php artisan make:controller'
+alias amm='php artisan make:model'
+alias amf='php artisan make:factory'
 alias serve='php artisan serve'
-alias tinker='php artisan tinker'
-alias migrate="php artisan migrate"
+alias tk='php artisan tinker'
+alias m="php artisan migrate"
+alias mr="php artisan migrate:refresh --seed"
 alias sail='bash vendor/bin/sail'
+
+# laravel-sail
+alias sa='./vendor/bin/sail artisan'
+alias sn='./vendor/bin/sail npm'
+alias sp='./vendor/bin/sail php'
+alias sc='./vendor/bin/sail composer'
 
 # composer
 alias co="composer"
@@ -30,6 +44,7 @@ t() {
 
 # git
 alias gst='git status -s'
+alias gdk='git difftool --no-symlinks --dir-diff'
 alias gcm='git commit -m'
 alias gcl='git clone'
 alias nah="git reset --hard && git clean -df"
@@ -81,12 +96,34 @@ alias af="alias-finder -l"
 
 # other
 alias lg="lazygit"
-alias n="neofetch"
+alias i="neofetch --off"
 alias ra="ranger"
 alias v="nvim"
-alias vim="vim"
 alias python="python3"
 alias pip="pip3"
 
-#composer
+# composer
 alias crm="composer remove"
+
+# quick
+alias va="vim ~/.alias"
+
+# kitty
+alias k="kitty +kitten"
+alias ssh="kitty +kitten ssh"
+
+# npm
+alias nd="npm run dev"
+alias nb="npm run build"
+
+# npm
+alias pnd="pnpm run dev"
+alias pnb="pnpm run build"
+
+# docker
+alias d="docker"
+alias dc="docker compose"
+alias dce="docker compose exec --user=laradock workspace zsh"
+
+# skhd
+alias skhd-repair="sudo yabai --load-sa && brew services restart skhd"

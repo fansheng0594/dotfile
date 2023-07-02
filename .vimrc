@@ -5,12 +5,15 @@ set wildmode=longest:list,full
 set history=50
 set hidden  " 缓冲区修改还未保存的情况下可以进行移动
 cnoremap <expr> %% getcmdtype()==':' ? expand('%:h').'/':'%%'	  " 在命令行中输入 %% 就可以显示出当前文件夹路径
+" set guifont="JetBrainsMono Nerd Font Mono Regular"
+set guifont="JetBrains Mono Regular"
+" set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 13
 
 set expandtab
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4
-set autoindent
+" set softtabstop=4
+" set autoindent
 
 " 结尾有空格时，更容易发现
 set list
@@ -23,9 +26,9 @@ set viewoptions=cursor,folds,slash,unix
 
 set indentexpr=
 set textwidth=0
-set foldmethod=indent
-set foldlevel=99
-set foldenable
+" set foldmethod=indent
+" set foldlevel=99
+" set foldenable
 set formatoptions-=tc
 
 " 分屏时到右边和下边
@@ -73,33 +76,36 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
 " Mappings --------------------- {{{
 " 上次编辑位置
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif  
+" au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif  
 
 " keymap
-let mapleader=","
+nnoremap <SPACE> <Nop>
+let mapleader="\<SPACE>"
 let maplocalleader="-"
 noremap <Down> <Nop>
 noremap <Left> <Nop>
-noremap <Right> <Nop>
+" noremap <Right> <Nop>
 noremap <Leader>n nzz
 noremap <Leader>N Nzz
 
 " make Y to copy till the end of the line 
-nnoremap Y y$
+nnoremap Y "+y
 " Copy to system clipboard
 vnoremap Y "+y
-noremap <Up> <Nop>
+" noremap <Up> <Nop>
 " coc yank list
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>cr
 " style
 hi HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
 
 "uppercase
-inoremap <C-u> <Esc>viwUwa
 nnoremap <C-u> viwU
 
+"delete cursor forward to end
+inoremap <C-k> <C-o>d$
+
 " 个性化粘贴
-noremap <Leader>pp o<Esc>p 
+" noremap <Leader>pp o<Esc>p 
 
 " 批量缩进代码
 xnoremap < <gv
@@ -111,7 +117,7 @@ nnoremap > >>
 
 " Search
 " noremap <LEADER><CR> :nohlsearch<CR>
-nnoremap <Leader><CR> :if (&hlsearch && v:hlsearch) \| nohlsearch \| else \| set hlsearch \| endif <CR>
+nnoremap <silent> <Leader><CR> :if (&hlsearch && v:hlsearch) \| nohlsearch \| else \| set hlsearch \| endif <CR>
 
 " Adjacent duplicate words  查找相邻重复词
 noremap <LEADER>dw /\(\<\w\+\>\)\_s*\1
@@ -140,27 +146,26 @@ noremap <silent> L $
 
 " quit vim
 map <silent> Q :q<CR>
-map S :w<CR>
+nnoremap S :w<CR>
 
 " edit myvimrc file
 nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
 " source $MYVIMRC
 nnoremap <Leader>sv :source $MYVIMRC<cr>
 "------------Usual
-nnoremap <Leader>h :help 
+nnoremap <Leader>H :help 
 nnoremap <Leader>se :set 
 nnoremap <Leader>ec :echo 
 nnoremap <Leader>em :echom 
 nnoremap <Leader>ex :execute 
-" recent command
-nnoremap <C-p> :<Up>
+
 " open previous buffer in split
-nnoremap <Leader>hs :split #<CR>
+" nnoremap <Leader>hs :split #<CR>
 nnoremap <Leader>vs :vsplit #<CR>
 nnoremap <Leader>no :normal! 
 
 " insert-mode delete current line
-inoremap <C-d> <Esc>ddO
+inoremap <C-u> <Esc>ddO
 
 " move
 nnoremap H ^
@@ -180,7 +185,17 @@ vnoremap <Esc> <Nop>
 " buffer
 nnoremap <Leader>ls :ls<cr>
 nnoremap <Leader>bn :bn<cr>
-nnoremap <Leader>bi :b 
+nnoremap <Leader>bp :bp<cr>
+
+" insert mode
+inoremap ,, <Esc>A,<Esc>
+inoremap ;; <Esc>A;<Esc>
+map gf :edit <cfile><cr>
+
+" add blank line
+nnoremap <Leader>o o<Esc>
+nnoremap <Leader>O O<Esc>
+
 
 "-----Operator-Pending-Mapping-----"
 "--round brackets(parentheses)
@@ -231,6 +246,11 @@ nnoremap <Leader>/ /\v
 "-- marks
 nnoremap <Leader>ms :marks abcdefghijklmnopqrstuvwxyz<CR>
 nnoremap <Leader>mu :marks ABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>
+
+"-- jump
+" nnoremap <Leader>] <C-]>
+" nnoremap <Leader>[ <C-O>
+" nnoremap <Leader>] <C-I>
 " }}}
 
 
@@ -246,9 +266,24 @@ Plug 'amiorin/vim-project'
 " fzf 
 Plug 'junegunn/fzf'
 
-call plug#end()
-" }}}
+" vim-easyclip
+Plug 'svermeulen/vim-easyclip'
 
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
+call plug#end()
+
+" vim-easyclip
+let g:EasyClipShareYanks = 1
+nnoremap gm m
+" let g:EasyClipUseCutDefaults = 1
+
+" airline statusline
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_section_y = ''
+" }}}
 
 " Autocommand -------------------- {{{
 " Automatically source the Vimrc file on save"
@@ -265,12 +300,12 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker " default fold
     autocmd FileType vim setlocal foldlevelstart=0
     autocmd FileType vim setlocal foldlevel=0
-    autocmd FileType vim nnoremap <C-i> I" <Esc>
 augroup END
 
 augroup filetype_php
     autocmd!
-    autocmd FileType php nnoremap <C-_> I// <Esc>
+    autocmd FileType php setlocal commentstring=//\ %s
+    " autocmd FileType php nnoremap <C-c> I// <Esc>
 augroup END
 " }}}
 
@@ -287,27 +322,27 @@ cabbrev efunc endfunction END
 
 
 " Status Line --------------------- {{{
-set laststatus=2
-" set statusline=%#Question#%#Question# "add group highlight
-set statusline=[b:%n] "buffer number
-set statusline+=\ %f "file name, in current directory
-set statusline+=\ \ %m "modified and modifiable
-set statusline+=%r "read only
-set statusline+=%= "align right
-set statusline+=%l/%L "current/total line
+"set laststatus=2
+"" set statusline=%#Question#%#Question# "add group highlight
+"set statusline=[b:%n] "buffer number
+"set statusline+=\ %f "file name, in current directory
+"set statusline+=\ \ %m "modified and modifiable
+"set statusline+=%r "read only
+"set statusline+=%= "align right
+"set statusline+=%l/%L "current/total line
 " }}}
 
 
 " Functions --------------------- {{{
-function Table(title, ...)
-    echohl Title
-    echo a:title
-    echohl None
-    echo a:0 . " items:"
-    for s in a:000
-      echom ' ' . s
-    endfor
-endfunction
+"function Table(title, ...)
+"    echohl Title
+"    echo a:title
+"    echohl None
+"    echo a:0 . " items:"
+"    for s in a:000
+"      echom ' ' . s
+"    endfor
+"endfunction
 " }}}
 
 

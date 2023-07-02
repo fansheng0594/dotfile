@@ -1,0 +1,100 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/62f0144/
+%%	.vimrc	/^cnoremap <expr> %% getcmdtype()==':' ? expand('%:h').'\/':'%%'	  " 在命令行中输入 %% 就可/;"	m
+(	.vimrc	/^onoremap ( i($/;"	m
+,,	.vimrc	/^inoremap ,, <Esc>A,<Esc>$/;"	m
+;;	.vimrc	/^inoremap ;; <Esc>A;<Esc>$/;"	m
+<	.vimrc	/^nnoremap < <<$/;"	m
+<	.vimrc	/^xnoremap < <gv$/;"	m
+<C-b>	.vimrc	/^inoremap <C-b> <C-o>h$/;"	m
+<C-b>	.vimrc	/^noremap <C-b> <C-b>zz$/;"	m
+<C-d>	.vimrc	/^inoremap <C-d> <Esc>ddO$/;"	m
+<C-f>	.vimrc	/^inoremap <C-f> <C-o>a$/;"	m
+<C-f>	.vimrc	/^noremap <C-f> <C-f>zz$/;"	m
+<C-p>	.vimrc	/^nnoremap <C-p> :<Up>$/;"	m
+<C-u>	.vimrc	/^inoremap <C-u> <Esc>viwUwa$/;"	m
+<C-u>	.vimrc	/^nnoremap <C-u> viwU$/;"	m
+<Down>	.vimrc	/^noremap <Down> <Nop>$/;"	m
+<Esc>	.vimrc	/^inoremap <Esc> <Nop>$/;"	m
+<Esc>	.vimrc	/^vnoremap <Esc> <Nop>$/;"	m
+<LEADER>dw	.vimrc	/^noremap <LEADER>dw \/\\(\\<\\w\\+\\>\\)\\_s*\\1$/;"	m
+<LEADER>o	.vimrc	/^noremap <silent> <LEADER>o za$/;"	m
+<LEADER>tt	.vimrc	/^nnoremap <LEADER>tt :%s\/	\/\\t\/g$/;"	m
+<LEADER>tt	.vimrc	/^vnoremap <LEADER>tt :s\/	\/\\t\/g$/;"	m
+<Leader>"	.vimrc	/^nnoremap <Leader>" viW<Esc>a"<Esc>Bi"<Esc>f"$/;"	m
+<Leader>"	.vimrc	/^vnoremap <Leader>" <Esc>`<i"<Esc>`>la"<Esc>$/;"	m
+<Leader>'	.vimrc	/^nnoremap <Leader>' viW<Esc>a'<Esc>Bi'<Esc>f'$/;"	m
+<Leader>/	.vimrc	/^nnoremap <Leader>\/ \/\\v$/;"	m
+<Leader><CR>	.vimrc	/^nnoremap <Leader><CR> :if (&hlsearch && v:hlsearch) \\| nohlsearch \\| else \\| set hlsearch \\|/;"	m
+<Leader>N	.vimrc	/^noremap <Leader>N Nzz$/;"	m
+<Leader>bi	.vimrc	/^nnoremap <Leader>bi :b $/;"	m
+<Leader>bn	.vimrc	/^nnoremap <Leader>bn :bn<cr>$/;"	m
+<Leader>ec	.vimrc	/^nnoremap <Leader>ec :echo $/;"	m
+<Leader>em	.vimrc	/^nnoremap <Leader>em :echom $/;"	m
+<Leader>ev	.vimrc	/^nnoremap <Leader>ev :vsplit $MYVIMRC<cr>$/;"	m
+<Leader>ex	.vimrc	/^nnoremap <Leader>ex :execute $/;"	m
+<Leader>h	.vimrc	/^nnoremap <Leader>h :help $/;"	m
+<Leader>hs	.vimrc	/^nnoremap <Leader>hs :split #<CR>$/;"	m
+<Leader>ls	.vimrc	/^nnoremap <Leader>ls :ls<cr>$/;"	m
+<Leader>ms	.vimrc	/^nnoremap <Leader>ms :marks abcdefghijklmnopqrstuvwxyz<CR>$/;"	m
+<Leader>mu	.vimrc	/^nnoremap <Leader>mu :marks ABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>$/;"	m
+<Leader>n	.vimrc	/^noremap <Leader>n nzz$/;"	m
+<Leader>no	.vimrc	/^nnoremap <Leader>no :normal! $/;"	m
+<Leader>pp	.vimrc	/^noremap <Leader>pp o<Esc>p $/;"	m
+<Leader>se	.vimrc	/^nnoremap <Leader>se :set $/;"	m
+<Leader>sv	.vimrc	/^nnoremap <Leader>sv :source $MYVIMRC<cr>$/;"	m
+<Leader>th	.vimrc	/^nnoremap <Leader>th :match <CR>$/;"	m
+<Leader>ts	.vimrc	/^nnoremap <Leader>ts :match ERROR \/\\v.* $\/<CR>$/;"	m
+<Leader>vs	.vimrc	/^nnoremap <Leader>vs :vsplit #<CR>$/;"	m
+<Left>	.vimrc	/^noremap <Left> <Nop>$/;"	m
+<Right>	.vimrc	/^noremap <Right> <Nop>$/;"	m
+<Up>	.vimrc	/^noremap <Up> <Nop>$/;"	m
+<space>y	.vimrc	/^nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>cr$/;"	m
+>	.vimrc	/^nnoremap > >>$/;"	m
+>	.vimrc	/^xnoremap > >gv$/;"	m
+H	.vimrc	/^nnoremap H ^$/;"	m
+H	.vimrc	/^noremap <silent> H 0$/;"	m
+J	.vimrc	/^noremap <silent> J 5j$/;"	m
+K	.vimrc	/^noremap <silent> K 5k$/;"	m
+L	.vimrc	/^nnoremap L \$$/;"	m
+L	.vimrc	/^noremap <silent> L \$$/;"	m
+Q	.vimrc	/^map <silent> Q :q<CR>$/;"	m
+S	.vimrc	/^nnoremap S :w<CR>$/;"	m
+W	.vimrc	/^command! W execute 'w !sudo tee % > \/dev\/null' <bar> edit!$/;"	c
+Y	.vimrc	/^nnoremap Y y\$$/;"	m
+Y	.vimrc	/^vnoremap Y "+y$/;"	m
+[	.vimrc	/^onoremap [ i[$/;"	m
+ah	.vimrc	/^onoremap ah :<C-u>execute "normal! ?^==\\\\+$\\r:nohlsearch\\rg_vk0"<cr>$/;"	m
+al(	.vimrc	/^onoremap al( :normal! F)va(<cr>$/;"	m
+al[	.vimrc	/^onoremap al[ :normal! F]va[<cr>$/;"	m
+al{	.vimrc	/^onoremap al{ :normal! F}va{<cr>$/;"	m
+an(	.vimrc	/^onoremap an( :normal! f(va(<cr>$/;"	m
+an[	.vimrc	/^onoremap an[ :normal! f[va[<cr>$/;"	m
+an{	.vimrc	/^onoremap an{ :normal! f{va{<cr>$/;"	m
+autosourcing	.vimrc	/^augroup autosourcing$/;"	a
+filetype_php	.vimrc	/^augroup filetype_php$/;"	a
+filetype_vim	.vimrc	/^augroup filetype_vim$/;"	a
+g:EasyClipShareYanks	.vimrc	/^let g:EasyClipShareYanks = 1$/;"	v
+g:airline#extensions#whitespace#enabled	.vimrc	/^let g:airline#extensions#whitespace#enabled = 0$/;"	v
+g:airline_section_y	.vimrc	/^let g:airline_section_y = ''$/;"	v
+g:move_key_modifier	.vimrc	/^let g:move_key_modifier = 'C'$/;"	v
+gf	.vimrc	/^map gf :edit <cfile><cr>$/;"	m
+ih	.vimrc	/^onoremap ih :<C-u>execute "normal! ?^==\\\\+$\\r:nohlsearch\\rkvg_"<cr>$/;"	m
+il(	.vimrc	/^onoremap il( :normal! F)vi(<cr>$/;"	m
+il[	.vimrc	/^onoremap il[ :normal! F]vi[<cr>$/;"	m
+il{	.vimrc	/^onoremap il{ :normal! F}vi{<cr>$/;"	m
+in(	.vimrc	/^onoremap in( :normal! f(vi(<cr>$/;"	m
+in[	.vimrc	/^onoremap in[ :normal! f[vi[<cr>$/;"	m
+in{	.vimrc	/^onoremap in{ :normal! f{vi{<cr>$/;"	m
+jk	.vimrc	/^inoremap jk <Esc>$/;"	m
+mapleader	.vimrc	/^let mapleader=","$/;"	v
+maplocalleader	.vimrc	/^let maplocalleader="-"$/;"	v
+nu	.vimrc	/^nnoremap nu :set nonu<CR>$/;"	m
+{	.vimrc	/^onoremap { i{$/;"	m
